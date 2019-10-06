@@ -1,27 +1,31 @@
-<mat-card>
-        <mat-card-title>Login</mat-card-title>
-  <mat-card-content>
-    <form [formGroup]="form" (ngSubmit)="submit()">
-      <p>
-        <mat-form-field>
-          <input type="text" matInput placeholder="Usuário" formControlName="username">
-        </mat-form-field>
-      </p>
+<div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+    <mat-card class="md-elevation-z24" fxFlex="30%">
+        <mat-card-title fxLayoutAlign="center center">
+            <img fxFlex="50%" src="../../assets/ET2.png" alt="brandlogo">
+        </mat-card-title>
+        <mat-card-subtitle fxLayoutAlign="center center">
+            <h1>Login</h1>
+        </mat-card-subtitle>
+        <mat-card-content>
+            <form [formGroup]="form" fxLayout="column" fxLayoutAlign="center center" (ngSubmit)="submit()">
+                <mat-form-field appearance="outline">
+                    <mat-label>Usuário</mat-label>
+                    <input type="text" matInput placeholder="Usuário" formControlName="username">
+                </mat-form-field>
 
-      <p>
-        <mat-form-field>
-          <input type="password" matInput placeholder="Senha" formControlName="password">
-        </mat-form-field>
-      </p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Senha</mat-label>
+                    <input type="password" matInput placeholder="Senha" formControlName="password">
+                </mat-form-field>
 
-      <p *ngIf="error" class="error">
-        {{ error }}
-      </p>
+                <p *ngIf="error" class="error">
+                    {{ error }}
+                </p>
 
-      <div class="button">
-        <button type="submit" mat-button (click)="toMed()">Login</button>
-      </div>
- 
-    </form>
-  </mat-card-content>
-</mat-card>
+                <div class="button">
+                    <button fxFlex="100%" color="primary" type="submit" mat-button (click)="toMed()">Login</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
