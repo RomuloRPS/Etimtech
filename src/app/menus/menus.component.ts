@@ -3,6 +3,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { CartModalComponent } from '../cart-modal/cart-modal.component';
+import { MatDialogConfig, MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-menus',
@@ -17,7 +19,7 @@ export class MenusComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private route: Router) {
+  constructor(private breakpointObserver: BreakpointObserver, private route: Router, private dialog: MatDialog) {
 
 
   }
@@ -28,11 +30,21 @@ export class MenusComponent {
   }
 
   toMed(){
-    this.route.navigate(['/medicamentos']);
+    this.route.navigate(['/produtos']);
   }
 
   toLogin(){
     this.route.navigate(['/login']);
+  }
+
+
+  openDialog() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    this.dialog.open(CartModalComponent, dialogConfig);
   }
 
 }

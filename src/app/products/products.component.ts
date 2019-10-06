@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import {MatDialog, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
+import { CartModalComponent } from '../cart-modal/cart-modal.component';
 
 @Component({
   selector: 'app-products',
@@ -11,7 +13,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
 export class ProductsComponent {
   /** Based on the screen size, switch from standard to one column per row */
-
+  
   public mobile = true;
 
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -35,7 +37,7 @@ export class ProductsComponent {
     
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, public dialog: MatDialog) {}
 
   ngOnInit() {
     console.log(window.screen.width)

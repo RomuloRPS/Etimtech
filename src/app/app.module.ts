@@ -21,6 +21,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
+import { CartModalComponent } from './cart-modal/cart-modal.component';
+import {MatDialogModule} from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { LoginComponent } from './login/login.component';
     ProductsComponent,
     MenusComponent,
     ProfileComponent,
-    LoginComponent
+    LoginComponent,
+    CartModalComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +50,7 @@ import { LoginComponent } from './login/login.component';
     MatSelectModule,
     MatRadioModule,
     ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
