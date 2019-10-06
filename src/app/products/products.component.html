@@ -1,0 +1,30 @@
+<app-menus>
+<div class="grid-container">
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{card.title}} | <span style="color: blue;"><strong>R$18,99</strong></span>
+          </mat-card-title>
+         
+          <mat-card-subtitle>	
+            {{card.subtitle}}
+          </mat-card-subtitle>	
+
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+            <img style="max-height: 200px;; max-width: 200px;" mat-card-image src="{{card.image}}">
+        </mat-card-content>
+        <mat-card-footer style="text-align: right;">
+        
+            <button style="bottom: 10px; margin-right: 15px;"color="primary" mat-stroked-button><mat-icon aria-hidden="false" aria-label="Example home icon">assignment</mat-icon>Adicionar a lista</button>
+            <button style="bottom: 10px; margin-right: 15px;"color="primary" mat-raised-button><mat-icon aria-hidden="false" aria-label="Example home icon">shopping_cart</mat-icon>Comprar</button>
+         
+
+          </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+</app-menus>
