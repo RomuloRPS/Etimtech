@@ -18,7 +18,12 @@ const routes: Routes = [
   {
     path: 'dados',
     component: ProfileComponent
+  },
+  {
+    path: '',
+    component: ProductsComponent
   }
+  
 ];
 
 @NgModule({
