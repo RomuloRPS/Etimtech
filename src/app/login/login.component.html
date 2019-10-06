@@ -7,10 +7,10 @@
             <h1>Login</h1>
         </mat-card-subtitle>
         <mat-card-content>
-            <form [formGroup]="form" fxLayout="column" fxLayoutAlign="center center" (ngSubmit)="submit()">
+            <form [formGroup]="loginForm" fxLayout="column" fxLayoutAlign="center center" (ngSubmit)="submit()">
                 <mat-form-field appearance="outline">
-                    <mat-label>Usuário</mat-label>
-                    <input type="text" matInput placeholder="Usuário" formControlName="username">
+                    <mat-label>Email</mat-label>
+                    <input type="text" matInput placeholder="Email" formControlName="email">
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
@@ -18,12 +18,8 @@
                     <input type="password" matInput placeholder="Senha" formControlName="password">
                 </mat-form-field>
 
-                <p *ngIf="error" class="error">
-                    {{ error }}
-                </p>
-
                 <div class="button">
-                    <button fxFlex="100%" color="primary" type="submit" mat-button (click)="toMed()">Login</button>
+                    <button fxFlex="100%" type="submit" color="primary" mat-raised-button (click)="toMed()">Login</button>
                 </div>
             </form>
         </mat-card-content>
