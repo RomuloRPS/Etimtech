@@ -1,30 +1,74 @@
 <app-menus>
 <div class="grid-container">
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+  <mat-grid-list *ngIf="!mobile" cols="3" rowHeight="400px">
+    <mat-grid-tile *ngFor="let card of cards | async" 
+    >
+      <div>
       <mat-card class="dashboard-card">
         <mat-card-header>
-          <mat-card-title>
-            {{card.title}} | <span style="color: blue;"><strong>R$18,99</strong></span>
-          </mat-card-title>
-         
-          <mat-card-subtitle>	
-            {{card.subtitle}}
-          </mat-card-subtitle>	
+      
 
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-            <img style="max-height: 200px;; max-width: 200px;" mat-card-image src="{{card.image}}">
+            <img style="max-height: 200px; max-width: 200px;" mat-card-image src="{{card.image}}">
+              <mat-card-title style="overflow: hidden;">
+                <span style="overflow: hidden;">{{card.title}}</span>
+              </mat-card-title>
+              <mat-card-subtitle>	
+                  {{card.subtitle}}
+                </mat-card-subtitle>
+              <mat-card-title style="overflow: hidden;">
+                <span style="color: blue;"><strong>R$18,99</strong></span>
+              </mat-card-title>
+              
+             	
         </mat-card-content>
-        <mat-card-footer style="text-align: right;">
+        <mat-card-footer style="text-align: center;">
+          <button style="" color="primary" mat-raised-button><mat-icon aria-hidden="false" aria-label="Example home icon">shopping_cart</mat-icon>Comprar</button>
+
+        </mat-card-footer>
+      </mat-card>
+
+      </div>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <mat-grid-list *ngIf="mobile" cols="1" rowHeight="450px">
+    <mat-grid-tile *ngFor="let card of cards | async">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
         
-            <button style="bottom: 10px; margin-right: 15px;"color="primary" mat-stroked-button><mat-icon aria-hidden="false" aria-label="Example home icon">assignment</mat-icon>Adicionar ao carrinho</button>
-            <button style="bottom: 10px; margin-right: 15px;"color="primary" mat-raised-button><mat-icon aria-hidden="false" aria-label="Example home icon">shopping_cart</mat-icon>Comprar</button>
+
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+            <img style="max-height: 180px; max-width: 200px;" mat-card-image src="{{card.image}}">
+        </mat-card-content>
+        <mat-card-footer style="text-align: center;">
+            
+          <mat-card-title>
+            {{card.title}}
+          </mat-card-title>
+          <mat-card-subtitle>	
+              {{card.subtitle}}
+            </mat-card-subtitle>
+          <mat-card-title>
+          <span style="color: blue;"><strong>R$18,99</strong></span>
+          </mat-card-title>
+
+        	
+              <button style="margin-top : 10px;"color="primary" mat-raised-button><mat-icon aria-hidden="false" aria-label="Example home icon">shopping_cart</mat-icon>Comprar</button>
+       
+            
          
 
           </mat-card-footer>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
+
+
+
+
 </div>
 </app-menus>

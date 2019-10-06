@@ -56,6 +56,7 @@ import { HomeComponent } from './home/home.component';
     MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CartModalComponent]
 })
 export class AppModule { }

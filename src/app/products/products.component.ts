@@ -3,6 +3,7 @@ import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
 import { CartModalComponent } from '../cart-modal/cart-modal.component';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-products',
@@ -15,23 +16,16 @@ export class ProductsComponent {
   /** Based on the screen size, switch from standard to one column per row */
   
   public mobile = true;
+  public alert = Swal
 
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Paracetamol', subtitle: 'acetaminofeno', image: 'https://www.medquimica.ind.br/wp-content/uploads/produto/Paracetamol-Gotas-Mesclado.jpg',  cols: 1, rows: 1 },
-          { title: 'Dorflex', subtitle: 'acetaminofeno', image: 'https://img.drogaraia.com.br/catalog/product/d/o/dorflex_analgesico_36_comprimidos.jpg?width=520&height=520&quality=50&type=resize', cols: 1, rows: 1 },
-          { title: 'MultiGrip', subtitle: 'acetaminofeno', image: 'https://images.tcdn.com.br/img/img_prod/579568/multigrip_caixa_com_20_capsulas_703_1_20170825131128.jpg', cols: 1, rows: 1 },
-          { title: 'Tylenol',  subtitle: 'acetaminofeno', image: 'https://drogariasp.vteximg.com.br/arquivos/ids/321668-500-500/Tylenol-750Mg-20-Comprimidos-Drogaria-SP-19119.jpg?v=636753815548670000', cols: 1, rows: 1 }
-        ];
-      }
 
       return [
-        { title: 'Paracetamol', subtitle: 'acetaminofeno', image: 'https://www.medquimica.ind.br/wp-content/uploads/produto/Paracetamol-Gotas-Mesclado.jpg', cols: 1, rows: 1 },
-        { title: 'Dorflex', subtitle: 'acetaminofeno', image: 'https://img.drogaraia.com.br/catalog/product/d/o/dorflex_analgesico_36_comprimidos.jpg?width=520&height=520&quality=50&type=resize',cols: 1, rows: 1 },
-        { title: 'MultiGrip',subtitle: 'acetaminofeno', image: 'https://images.tcdn.com.br/img/img_prod/579568/multigrip_caixa_com_20_capsulas_703_1_20170825131128.jpg', cols: 1, rows: 1 },
-        { title: 'Tylenol', subtitle: 'acetaminofeno', image: 'https://drogariasp.vteximg.com.br/arquivos/ids/321668-500-500/Tylenol-750Mg-20-Comprimidos-Drogaria-SP-19119.jpg?v=636753815548670000', cols: 1, rows: 1 }
+        { title: 'Doril Enxaqueca 4 Comprimidos', subtitle: 'ácido acetilsalicílico, paracetamol e cafeína  ', image: 'https://ultrafarma-storage.azureedge.net/static/produtos/804704/large-804704.jpg', cols: 1, rows: 1 },
+        { title: 'Dorflex 24 Comprimidos', subtitle: 'dipirona monoidratada e citrato de orfenadrina e cafeína anidra', image: 'https://img.drogaraia.com.br/catalog/product/d/o/dorflex_analgesico_36_comprimidos.jpg?width=520&height=520&quality=50&type=resize',cols: 1, rows: 1 },
+        { title: 'MultiGrip 20 Capsulas',subtitle: 'fenilefrina, clorfeniramina, paracetamol', image: 'https://images.tcdn.com.br/img/img_prod/579568/multigrip_caixa_com_20_capsulas_703_1_20170825131128.jpg', cols: 1, rows: 1 },
+        { title: 'Tylenol 750mg', subtitle: '750 mg de paracetamol', image: 'https://drogariasp.vteximg.com.br/arquivos/ids/321668-500-500/Tylenol-750Mg-20-Comprimidos-Drogaria-SP-19119.jpg?v=636753815548670000', cols: 1, rows: 1 }
       ];
     })
     
@@ -39,33 +33,29 @@ export class ProductsComponent {
 
   constructor(private breakpointObserver: BreakpointObserver, public dialog: MatDialog) {}
 
+  reportWindowSize(event){
+      if (window.screen.width  < 900) { // 768px portrait
+        console.log('a');
+        this.mobile = true;      
+      }else{
+        console.log('b');
+        this.mobile = false;      
+      }
+  }
+
   ngOnInit() {
+    window.addEventListener('resize', this.reportWindowSize.bind(this), true);
     console.log(window.screen.width)
-    if (window.screen.width  < 768) { // 768px portrait
+    if (window.screen.width  < 1000) { // 768px portrait
       this.mobile = true;
-      this.cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-        map(({ matches }) => {
-          if (matches) {
-            return [
-              { title: 'Paracetamol', subtitle: 'acetaminofeno', image: 'https://www.medquimica.ind.br/wp-content/uploads/produto/Paracetamol-Gotas-Mesclado.jpg',  cols: 2, rows: 1 },
-              { title: 'Dorflex', subtitle: 'acetaminofeno', image: 'https://img.drogaraia.com.br/catalog/product/d/o/dorflex_analgesico_36_comprimidos.jpg?width=520&height=520&quality=50&type=resize',cols: 2, rows: 1 },
-              { title: 'MultiGrip', subtitle: 'acetaminofeno', image: 'https://images.tcdn.com.br/img/img_prod/579568/multigrip_caixa_com_20_capsulas_703_1_20170825131128.jpg',cols: 2, rows: 1 },
-              { title: 'Tylenol',subtitle: 'acetaminofeno', image: 'https://drogariasp.vteximg.com.br/arquivos/ids/321668-500-500/Tylenol-750Mg-20-Comprimidos-Drogaria-SP-19119.jpg?v=636753815548670000', cols: 2, rows: 1 }
-            ];
-          }
-    
-          return [
-            { title: 'Paracetamol', subtitle: 'acetaminofeno', image: 'https://www.medquimica.ind.br/wp-content/uploads/produto/Paracetamol-Gotas-Mesclado.jpg',cols: 2, rows: 1 },
-            { title: 'Dorflex',subtitle: 'acetaminofeno', image: 'https://img.drogaraia.com.br/catalog/product/d/o/dorflex_analgesico_36_comprimidos.jpg?width=520&height=520&quality=50&type=resize', cols: 2, rows: 1 },
-            { title: 'MultiGrip',subtitle: 'acetaminofeno', image: 'https://images.tcdn.com.br/img/img_prod/579568/multigrip_caixa_com_20_capsulas_703_1_20170825131128.jpg', cols: 2, rows: 1 },
-            { title: 'Tylenol',subtitle: 'acetaminofeno', image: 'https://drogariasp.vteximg.com.br/arquivos/ids/321668-500-500/Tylenol-750Mg-20-Comprimidos-Drogaria-SP-19119.jpg?v=636753815548670000', cols: 2, rows: 1 }
-          ];
-        })
-      );
-    
+ 
     }
     else{
+      this.mobile = false;
       console.log('aa');
     }
   }
+
+ 
+
 }
