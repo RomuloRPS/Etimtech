@@ -23,6 +23,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { CartModalComponent } from './cart-modal/cart-modal.component';
 import {MatDialogModule} from "@angular/material";
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {MatDialogModule} from "@angular/material";
     MenusComponent,
     ProfileComponent,
     LoginComponent,
-    CartModalComponent
+    CartModalComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
