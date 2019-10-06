@@ -16,10 +16,6 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'dados',
-    component: ProfileComponent
-  },
-  {
     path: '',
     component: ProductsComponent
   }

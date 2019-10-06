@@ -4,6 +4,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
 import { CartModalComponent } from '../cart-modal/cart-modal.component';
 import Swal from 'sweetalert2'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -31,7 +32,7 @@ export class ProductsComponent {
     
   );
 
-  constructor(private breakpointObserver: BreakpointObserver, public dialog: MatDialog) {}
+  constructor(private breakpointObserver: BreakpointObserver, public dialog: MatDialog, private route: Router) {}
 
   reportWindowSize(event){
       if (window.screen.width  < 900) { // 768px portrait
@@ -54,6 +55,10 @@ export class ProductsComponent {
       this.mobile = false;
       console.log('aa');
     }
+  }
+
+  toLogin(){
+    this.route.navigate(['login']);
   }
 
  

@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     this.route.navigate(['produtos'])
   }
 
-  logar(){
+  Logar(){
     
       Swal.fire({
         type: 'error',

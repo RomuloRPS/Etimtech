@@ -34,8 +34,8 @@
         <button 
         type="button"
         aria-label="Toggle sidenav"
-        mat-button (click)="openDialog()"
-        ><mat-icon aria-label="cart nav toggle icon" >shopping_cart</mat-icon> <strong *ngIf="!(isHandset$ | async)" (click)="toLogin()">Carrinho</strong>
+        mat-button (click)="toLogin()"
+        ><mat-icon aria-label="cart nav toggle icon" >shopping_cart</mat-icon> <strong *ngIf="!(isHandset$ | async)" >Carrinho</strong>
         
         </button>
       </div>

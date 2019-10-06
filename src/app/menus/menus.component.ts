@@ -37,14 +37,4 @@ export class MenusComponent {
     this.route.navigate(['/login']);
   }
 
-
-  openDialog() {
-    const dialogConfig = new MatDialogConfig();
-
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-
-    this.dialog.open(CartModalComponent, dialogConfig);
-  }
-
 }
