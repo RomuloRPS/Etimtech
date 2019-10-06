@@ -1,3 +1,5 @@
+<app-menus>
+    
 <mat-grid-list cols="1" rowHeight="100vh">
     <mat-grid-tile fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
         <mat-card>
@@ -16,11 +18,11 @@
                             <mat-label>Senha</mat-label>
                             <input type="password" matInput placeholder="Senha" formControlName="password">
                         </mat-form-field>
-                        <button class="botao" type="submit" (click)="toMed()" mat-button color="primary">Entrar</button>
+                        <button class="botao" type="submit" (click)="logar()" mat-button color="primary">Entrar</button>
                     </form>
-                    <p class="link-conta">Precisando de uma conta?&nbsp;<a class="routerLink" routerLink="/registrar" routerLinkActive="active"><b>Clique aqui&nbsp;</b></a><i class="far fa-smile"></i></p>
                 </div>
             </mat-card-content>
         </mat-card>
     </mat-grid-tile>
 </mat-grid-list>
+</app-menus>

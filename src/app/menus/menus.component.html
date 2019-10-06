@@ -27,7 +27,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <img style="width: 250px;" src="../../assets/imgs/ET2.3.png">
+      <img style="width: 250px;" src="../assets/imgs/ET2.3.png">
       <!-- <span>Etim<strong>tech</strong></span> -->
       <div style="position: fixed;right: 10px;">
 
@@ -35,7 +35,7 @@
         type="button"
         aria-label="Toggle sidenav"
         mat-button (click)="openDialog()"
-        ><mat-icon aria-label="cart nav toggle icon" >shopping_cart</mat-icon> <strong *ngIf="!(isHandset$ | async)">Carrinho</strong>
+        ><mat-icon aria-label="cart nav toggle icon" >shopping_cart</mat-icon> <strong *ngIf="!(isHandset$ | async)" (click)="toLogin()">Carrinho</strong>
         
         </button>
       </div>
